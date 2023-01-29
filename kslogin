@@ -52,7 +52,8 @@
 # so the -autoenable flag was added for this case (don't go through
 # the process of enabling and the prompt will be the "#" prompt.
 # The default username password is the same as the vty password.
-#
+# 
+# kslogin (copy of clogin)#
 
 # Sometimes routers take awhile to answer (the default is 10 sec)
 set timeoutdflt 45

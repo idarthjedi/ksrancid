@@ -46,7 +46,7 @@ package ksrancid;
 #
 #  RANCID - Really Awesome New Cisco confIg Differ
 #
-#  rancid.pm - base/basic rancid procedures
+#  ksrancid.pm - copy of base/basic rancid procedures
 #
 
 use 5.010;
