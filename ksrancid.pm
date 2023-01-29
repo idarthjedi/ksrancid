@@ -1,0 +1,1 @@
+/usr/share/perl5/rancid/ksrancid.pm
