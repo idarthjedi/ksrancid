@@ -134,6 +134,27 @@ sub ShowInterfaces() {
 
 }
 
+sub ShowMAC() {
+  my($INPUT, $OUTPUT, $cmd) = @_;
+
+  print STDERR ("Execute ShowMAC()\n") if ($debug);
+ 
+  ProcessHistory("INTERFACES", "", "", "!MAC SETTINGS:\n!\n");
+
+  while(<$INPUT>) {
+  	tr/\015//d;
+	last if (/^$prompt/);
+	next if (/^(\s*|\s*$cmd\s*)$/);
+	return(1) if (/Invalid command\./);
+	return(1) if (/Incorrect number of arguments\./);
+    ProcessHistory("INTERFACES", "", "", "!$_");
+  }
+	
+	ProcessHistory("INTERFACES", "", "", "!\n");
+  1;
+
+}
+
 # post-open(collection file) initialization
 sub init {
 
