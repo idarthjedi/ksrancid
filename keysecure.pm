@@ -73,6 +73,46 @@ sub import {
     0;
 }
 
+sub ShowLogSettings() {
+  my($INPUT, $OUTPUT, $cmd) = @_;
+
+  print STDERR ("Execute ShowLogSettings()\n") if ($debug);
+  ProcessHistory("LOGGING", "", "", "!LOGGING SETTINGS:\n!\n");
+  while(<$INPUT>) {
+  	tr/\015//d;
+	last if (/^$prompt/);
+	next if (/^(\s*|\s*$cmd\s*)$/);
+	return(1) if (/Invalid command\./);
+	return(1) if (/Incorrect number of arguments\./);
+	return(1) if (/Usage: show hostname/);
+    ProcessHistory("LOGGING", "", "", "!$_");
+  }
+
+    ProcessHistory("LOGGING", "", "", "!\n");
+  1;
+
+}
+
+sub ShowRasSettings() {
+  my($INPUT, $OUTPUT, $cmd) = @_;
+
+  print STDERR ("Execute ShowRasSettings()\n") if ($debug);
+  ProcessHistory("ACCESS", "", "", "!REMOTE ACCESS SETTINGS:\n!\n");
+  while(<$INPUT>) {
+  	tr/\015//d;
+	last if (/^$prompt/);
+	next if (/^(\s*|\s*$cmd\s*)$/);
+	return(1) if (/Invalid command\./);
+	return(1) if (/Incorrect number of arguments\./);
+	return(1) if (/Usage: show hostname/);
+    ProcessHistory("ACCESS", "", "", "!$_");
+  }
+
+    ProcessHistory("ACCESS", "", "", "!\n");
+  1;
+
+}
+
 sub ShowHostname() {
   my($INPUT, $OUTPUT, $cmd) = @_;
 
