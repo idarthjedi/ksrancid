@@ -46,7 +46,7 @@ package keysecure;
 #
 #  RANCID - Really Awesome New Cisco confIg Differ
 #
-#  keysecure.pm - KeySecure IOS rancid procedures
+#  keysecure.pm - KeySecure rancid procedures
 
 use 5.010;
 use strict 'vars';
